@@ -1,0 +1,17 @@
+{
+  "name": "@njs2/redis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "loadEnv": true,
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "redis": "^3.1.2"
+  },
+  "scripts": {
+    "postinstall": "node ./postinstall.js --init-dir $INIT_CWD"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
