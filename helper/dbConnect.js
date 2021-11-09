@@ -3,7 +3,7 @@ const { CONNECTION_MODE, REDIS_HOST_URL,REDIS_HOST_PORT ,REDIS_HOST_PASSWORD,RED
 const { promisifyAll } = require("bluebird");
 let redisClientObj;
 let client ;
-module.exports.getRedisConnection = () => {
+module.exports.getConnection = () => {
   return new Promise((resolve, reject) => {
     if (redisClientObj) {
       resolve(redisClientObj);
