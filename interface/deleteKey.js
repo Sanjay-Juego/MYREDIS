@@ -5,7 +5,7 @@ module.exports = async function deleteKey(key) {
   return new Promise((resolve, reject) => {
     redis.del(key, (err, res) => {
       if (err) reject(err);
-      resolve(true);
+      resolve(res);
     });
   });
 };
