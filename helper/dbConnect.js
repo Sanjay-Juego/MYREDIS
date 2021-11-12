@@ -1,8 +1,10 @@
 const redis = require("redis");
-const {  REDIS_HOST_URL,REDIS_HOST_PORT ,REDIS_HOST_PASSWORD} = JSON.parse(process.env.REDIS);
+const { REDIS_HOST_URL, REDIS_HOST_PORT, REDIS_HOST_PASSWORD } = JSON.parse(
+  process.env.REDIS
+);
 const { promisifyAll } = require("bluebird");
 let redisClientObj;
-let client ;
+let client;
 module.exports.getConnection = () => {
   return new Promise((resolve, reject) => {
     if (redisClientObj) {
@@ -11,21 +13,21 @@ module.exports.getConnection = () => {
     }
 
     //const client = promisifyAll(redis.createClient(REDIS_HOST_URL));
-    if(REDIS_HOST_PASSWORD == ""){
-       client = 
-      promisifyAll(
+    if (REDIS_HOST_PASSWORD == "") {
+      client = promisifyAll(
         redis.createClient({
           host: REDIS_HOST_URL,
-          port: REDIS_HOST_PORT
-        }));
-    }else{
-     client = 
-    promisifyAll(
-      redis.createClient({
-        host: REDIS_HOST_URL,
-        port: REDIS_HOST_PORT,
-        password: REDIS_HOST_PASSWORD,
-      }));
+          port: REDIS_HOST_PORT,
+        })
+      );
+    } else {
+      client = promisifyAll(
+        redis.createClient({
+          host: REDIS_HOST_URL,
+          port: REDIS_HOST_PORT,
+          password: REDIS_HOST_PASSWORD,
+        })
+      );
     }
 
     client.on("connect", function () {

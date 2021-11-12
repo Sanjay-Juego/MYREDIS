@@ -1,5 +1,5 @@
 const { getConnection } = require("../helper/dbConnect");
-const {REDIS_PREFIX_KEY} = JSON.parse(process.env.REDIS); 
+const { REDIS_PREFIX_KEY } = JSON.parse(process.env.REDIS);
 module.exports = async function getKey(key) {
   const redis = await getConnection();
   key = REDIS_PREFIX_KEY + key;
