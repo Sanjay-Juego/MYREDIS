@@ -12,7 +12,7 @@ module.exports.getConnection = () => {
       return;
     }
 
-    //const client = promisifyAll(redis.createClient(REDIS_HOST_URL));
+  
     if (REDIS_HOST_PASSWORD == "") {
       client = promisifyAll(
         redis.createClient({
@@ -47,8 +47,4 @@ module.exports.getConnection = () => {
   });
 };
 
-// {
-//   host: "redis://127.0.0.1",
-//   port: 6379,
-//   password: "mypassword#c$blx!Na",
-// }
+
