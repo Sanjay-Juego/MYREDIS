@@ -11,16 +11,14 @@ module.exports.getConnection = () => {
     }
 
     //const client = promisifyAll(redis.createClient(REDIS_HOST_URL));
-    if(CONNECTION_MODE == "LOCAL"){
+    if(REDIS_HOST_PASSWORD == ""){
        client = 
       promisifyAll(
         redis.createClient({
           host: REDIS_HOST_URL,
           port: REDIS_HOST_PORT
         }));
-    }
-
-    if(CONNECTION_MODE == "SERVER"){
+    }else{
      client = 
     promisifyAll(
       redis.createClient({
