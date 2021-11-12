@@ -1,5 +1,5 @@
 const redis = require("redis");
-const { CONNECTION_MODE, REDIS_HOST_URL,REDIS_HOST_PORT ,REDIS_HOST_PASSWORD,REDIS_PREFIX_KEY} = JSON.parse(process.env.REDIS);
+const {  REDIS_HOST_URL,REDIS_HOST_PORT ,REDIS_HOST_PASSWORD} = JSON.parse(process.env.REDIS);
 const { promisifyAll } = require("bluebird");
 let redisClientObj;
 let client ;
